@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="setup_4.svg"
+   inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup__.png"
+   inkscape:export-xdpi="184.97647"
+   inkscape:export-ydpi="184.97647">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker8218"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path8220"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#ff0000;stroke-width:1pt;stroke-opacity:1;fill:#ff0000;fill-opacity:1"
+         transform="scale(0.4) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker7534"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="DotM"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.4) translate(7.4, 1)"
+         style="fill-rule:evenodd;stroke:#008b8b;stroke-width:1pt;stroke-opacity:1;fill:#008b8b;fill-opacity:1"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         id="path7536" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="DotM"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path5287"
+         d="M -2.5,-1.0 C -2.5,1.7600000 -4.7400000,4.0 -7.5,4.0 C -10.260000,4.0 -12.5,1.7600000 -12.5,-1.0 C -12.5,-3.7600000 -10.260000,-6.0 -7.5,-6.0 C -4.7400000,-6.0 -2.5,-3.7600000 -2.5,-1.0 z "
+         style="fill-rule:evenodd;stroke:#008b8b;stroke-width:1pt;stroke-opacity:1;fill:#008b8b;fill-opacity:1"
+         transform="scale(0.4) translate(7.4, 1)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotM-3"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path5287-6"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill:#008b8b;fill-opacity:1;fill-rule:evenodd;stroke:#008b8b;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)" />
+    </marker>
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4293"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4295"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill:#008b8b;fill-opacity:1;fill-rule:evenodd;stroke:#008b8b;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="364.14426"
+     inkscape:cy="797.18245"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1861"
+     inkscape:window-height="1056"
+     inkscape:window-x="1979"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     guidetolerance="20"
+     objecttolerance="20"
+     gridtolerance="10">
+    <sodipodi:guide
+       position="117.84375,680.09767"
+       orientation="1,0"
+       id="guide4146" />
+    <sodipodi:guide
+       position="590.27396,680.44114"
+       orientation="1,0"
+       id="guide4148" />
+    <sodipodi:guide
+       position="263.75,732.50001"
+       orientation="0,1"
+       id="guide4169" />
+    <sodipodi:guide
+       position="224.625,755.37501"
+       orientation="0,1"
+       id="guide4424" />
+    <sodipodi:guide
+       position="110,645.00001"
+       orientation="1,0"
+       id="guide4812" />
+    <sodipodi:guide
+       position="210.71782,712.05653"
+       orientation="0,1"
+       id="guide4237" />
+    <sodipodi:guide
+       position="210.71782,712.05653"
+       orientation="0,1"
+       id="guide4251" />
+    <sodipodi:guide
+       position="210.71782,712.05653"
+       orientation="0,1"
+       id="guide4253" />
+    <sodipodi:guide
+       position="224,719.50002"
+       orientation="0,1"
+       id="guide4255" />
+    <sodipodi:guide
+       position="703.26954,680.2422"
+       orientation="1,0"
+       id="guide5213" />
+    <sodipodi:guide
+       position="258.29688,881.87502"
+       orientation="0,1"
+       id="guide5217" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4138"
+       width="584.42859"
+       height="49.285706"
+       x="118.34419"
+       y="373.07648"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4458"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:15px;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr"><flowRegion
+         id="flowRegion4460"><rect
+           id="rect4462"
+           width="51.5"
+           height="23"
+           x="160"
+           y="213.36221" /></flowRegion><flowPara
+         id="flowPara4464" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4466"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:monospace;font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr;-inkscape-font-specification:monospace;font-stretch:normal;font-variant:normal;"><flowRegion
+         id="flowRegion4468"><rect
+           id="rect4470"
+           width="50"
+           height="27.5"
+           x="158.5"
+           y="208.86221"
+           style="-inkscape-font-specification:monospace;font-family:monospace;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:12.5px;" /></flowRegion><flowPara
+         id="flowPara4472" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4596"
+       style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(139.75722,6.3347428)"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647"><flowRegion
+         id="flowRegion4598"><rect
+           id="rect4600"
+           width="348.60364"
+           height="28.284271"
+           x="185.26198"
+           y="382.02499" /></flowRegion><flowPara
+         id="flowPara4602"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:monospace">Transmission medium</flowPara></flowRoot>    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#0000ff;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4616"
+       width="633.03552"
+       height="333.40814"
+       x="91.79071"
+       y="100.69881"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#0000ff;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:6, 6;stroke-dashoffset:0;stroke-opacity:1"
+       d="m 91.75,287.11221 632.79089,0"
+       id="path4626"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup__.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647"
+       sodipodi:nodetypes="cc" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4668"
+       style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0,-1,1,0,-239.44502,504.7359)"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647"><flowRegion
+         id="flowRegion4670"><rect
+           id="rect4672"
+           width="131.76494"
+           height="22.627417"
+           x="117.84375"
+           y="334.64883" /></flowRegion><flowPara
+         id="flowPara4674"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:monospace;fill:#0000ff;fill-opacity:1">Simulated</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4804"
+       style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="matrix(0,-1,1,0,-145.10319,359.69141)"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647"><flowRegion
+         id="flowRegion4806"><rect
+           id="rect4808"
+           width="52.325901"
+           height="40.305088"
+           x="94.752312"
+           y="240.60362" /></flowRegion><flowPara
+         id="flowPara4810"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:monospace;fill:#0000ff;fill-opacity:1">Real</flowPara></flowRoot>    <g
+       id="g4352"
+       transform="translate(0.49999887,0)">
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="256.86707"
+         x="151.98074"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="203.83408"
+         x="151.98074"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348-7"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="150.80106"
+         x="151.98074"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348-3"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="121.22391"
+         x="125.48632"
+         height="21.263458"
+         width="48.840614"
+         id="rect4389"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(10.024712,1.6113284)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4426"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4428"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="266.36221"
+             x="163.5"
+             height="30.625004"
+             width="44"
+             id="rect4430" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4432">Ext</flowPara></flowRoot>      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(0.10240936,5.5311588)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4482"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4484"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="208.86221"
+             x="156.5"
+             height="20"
+             width="65"
+             id="rect4486" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4488">IP/ICMP</flowPara></flowRoot>      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(3.5973434,3.1963809)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4526"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4528"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="158.86221"
+             x="157.5"
+             height="23.5"
+             width="55.5"
+             id="rect4530" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4532">babeld</flowPara></flowRoot>      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(3.3401604,-0.25754781)"
+         style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4570"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4572"><rect
+             y="122.86221"
+             x="130"
+             height="16.5"
+             width="40.5"
+             id="rect4574" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+           id="flowPara4576">Ping</flowPara></flowRoot>      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4580"
+         d="m 185.92187,190.39904 0,12.9047"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4582"
+         d="m 185.92187,243.60883 0,12.72792"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <g
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         id="g4458">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.04815447;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect4152"
+           width="136.10809"
+           height="226.39735"
+           x="117.86783"
+           y="113.3863" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           d="m 185.92187,296.98721 0,75.875"
+           id="path4604"
+           inkscape:connector-curvature="0" />
+      </g>
+      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(20,-2)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4838"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4840"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="118.36221"
+             x="183"
+             height="26"
+             width="63"
+             id="rect4842" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:'monospace Bold'"
+           id="flowPara4844">host0</flowPara></flowRoot>      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4892"
+         d="m 135,142.36221 0,84.5 16.5,0"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <g
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(0.4744465,0.01657282)"
+         id="g4453">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4387"
+           width="53.209785"
+           height="26.693281"
+           x="193.21693"
+           y="305.65744" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="196.76976"
+           y="322.10773"
+           id="text4410"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4412"
+             x="196.76976"
+             y="322.10773"
+             style="font-size:11.25px">mobility</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g4534"
+       transform="translate(0.703125,0)">
+      <g
+         id="g4565">
+        <g
+           id="g4596"
+           transform="translate(56,0)">
+          <path
+             inkscape:export-ydpi="184.97647"
+             inkscape:export-xdpi="184.97647"
+             inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+             inkscape:connector-curvature="0"
+             id="path4612"
+             d="m 354.05846,296.98721 0,76.37571"
+             style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+          <g
+             transform="translate(-0.20578265,0)"
+             id="g4416">
+            <g
+               id="g4388">
+              <rect
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 y="113.41528"
+                 x="286.00443"
+                 height="226.36958"
+                 width="136.10817"
+                 id="rect4152-6"
+                 style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.04809046;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <rect
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 y="256.86707"
+                 x="320.11734"
+                 height="39.59798"
+                 width="67.882248"
+                 id="rect4348-5"
+                 style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <rect
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 y="203.83409"
+                 x="321.1239"
+                 height="39.59798"
+                 width="67.882248"
+                 id="rect4348-7-6"
+                 style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <rect
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 y="150.80107"
+                 x="320.11734"
+                 height="39.59798"
+                 width="67.882248"
+                 id="rect4348-3-2"
+                 style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <flowRoot
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 transform="translate(6.933403,2.1113284)"
+                 style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                 id="flowRoot4442"
+                 xml:space="preserve"><flowRegion
+                   id="flowRegion4444"><rect
+                     y="265.86221"
+                     x="335.5"
+                     height="19.5"
+                     width="36.5"
+                     id="rect4446" /></flowRegion><flowPara
+                   style="font-size:13.75px"
+                   id="flowPara4448">Ext</flowPara></flowRoot>              <flowRoot
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 transform="translate(169.24557,5.531174)"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                 id="flowRoot4482-0"
+                 xml:space="preserve"><flowRegion
+                   id="flowRegion4484-9"><rect
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+                     y="208.86221"
+                     x="156.5"
+                     height="20"
+                     width="65"
+                     id="rect4486-3" /></flowRegion><flowPara
+                   style="font-size:13.75px"
+                   id="flowPara4488-6">IP/ICMP</flowPara></flowRoot>              <flowRoot
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                 id="flowRoot4526-8"
+                 xml:space="preserve"
+                 transform="translate(171.73394,3.1963962)"><flowRegion
+                   id="flowRegion4528-7"><rect
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+                     y="158.86221"
+                     x="157.5"
+                     height="23.5"
+                     width="55.5"
+                     id="rect4530-9" /></flowRegion><flowPara
+                   style="font-size:13.75px"
+                   id="flowPara4532-2">babeld</flowPara></flowRoot>              <path
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 inkscape:connector-curvature="0"
+                 id="path4584"
+                 d="m 355.06503,190.39904 0,13.08148"
+                 style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+              <path
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 inkscape:connector-curvature="0"
+                 id="path4586"
+                 d="m 355.06503,243.7856 0,12.72792"
+                 style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+              <flowRoot
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                 id="flowRoot4838-5"
+                 xml:space="preserve"
+                 transform="translate(189.2583,-2.3583159)"><flowRegion
+                   id="flowRegion4840-9"><rect
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+                     y="118.36221"
+                     x="183"
+                     height="26"
+                     width="63"
+                     id="rect4842-2" /></flowRegion><flowPara
+                   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:'monospace Bold'"
+                   id="flowPara4844-2">host1</flowPara></flowRoot>              <g
+                 inkscape:export-ydpi="184.97647"
+                 inkscape:export-xdpi="184.97647"
+                 inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+                 transform="translate(0.03125,-0.3125)"
+                 id="g4462">
+                <rect
+                   style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+                   id="rect4387-3"
+                   width="53.209785"
+                   height="26.693281"
+                   x="361.89511"
+                   y="306.01556" />
+                <text
+                   xml:space="preserve"
+                   style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+                   x="365.44794"
+                   y="322.46585"
+                   id="text4410-7"
+                   sodipodi:linespacing="125%"><tspan
+                     sodipodi:role="line"
+                     id="tspan4412-5"
+                     x="365.44794"
+                     y="322.46585"
+                     style="font-size:11.25px">mobility</tspan></text>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g4505"
+       transform="translate(112.9062,0)">
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="113.37531"
+         x="453.72958"
+         height="226.4099"
+         width="136.10806"
+         id="rect4152-3"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.04818332;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="256.86707"
+         x="487.84247"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348-9"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="203.83408"
+         x="487.84247"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348-7-1"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         y="150.80106"
+         x="487.84247"
+         height="39.59798"
+         width="67.882248"
+         id="rect4348-3-27"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(11.158531,1.1113284)"
+         style="font-style:normal;font-weight:normal;font-size:15px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4450"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4452"><rect
+             y="266.86221"
+             x="499"
+             height="30.125004"
+             width="47"
+             id="rect4454" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4456">Ext</flowPara></flowRoot>      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(335.96413,5.5311588)"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4482-06"
+         xml:space="preserve"><flowRegion
+           id="flowRegion4484-2"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="208.86221"
+             x="156.5"
+             height="20"
+             width="65"
+             id="rect4486-6" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4488-1">IP/ICMP</flowPara></flowRoot>      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4526-0"
+         xml:space="preserve"
+         transform="translate(339.45907,3.1963809)"><flowRegion
+           id="flowRegion4528-2"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="158.86221"
+             x="157.5"
+             height="23.5"
+             width="55.5"
+             id="rect4530-3" /></flowRegion><flowPara
+           style="font-size:13.75px"
+           id="flowPara4532-7">babeld</flowPara></flowRoot>      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4588"
+         d="m 521.78359,190.23721 0,13.625"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4594"
+         d="m 521.78359,243.48721 0,13.375"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         inkscape:connector-curvature="0"
+         id="path4614"
+         d="m 521.78359,296.98721 0,75.84538"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <flowRoot
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:125%;font-family:monospace;-inkscape-font-specification:monospace;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         id="flowRoot4838-8"
+         xml:space="preserve"
+         transform="translate(356.2583,-2.3583159)"><flowRegion
+           id="flowRegion4840-97"><rect
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:monospace;-inkscape-font-specification:monospace"
+             y="118.36221"
+             x="183"
+             height="26"
+             width="63"
+             id="rect4842-3" /></flowRegion><flowPara
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:15px;font-family:monospace;-inkscape-font-specification:'monospace Bold'"
+           id="flowPara4844-6">host2</flowPara></flowRoot>      <g
+         inkscape:export-ydpi="184.97647"
+         inkscape:export-xdpi="184.97647"
+         inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/setup_.png"
+         transform="translate(-0.8124999,-1.0625)"
+         id="g4482">
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4387-6"
+           width="53.209785"
+           height="26.693281"
+           x="530.39508"
+           y="307.01556" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           x="533.94794"
+           y="323.46585"
+           id="text4410-3"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan4412-56"
+             x="533.94794"
+             y="323.46585"
+             style="font-size:11.25px">mobility</tspan></text>
+      </g>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#008b8b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM);marker-end:url(#DotM)"
+       d="m 220.25,170.98721 52.375,0 0,213.375 56.70998,0 0,-213.36441 47.0226,-0.39775"
+       id="path5215"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#008b8b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#DotM-3);marker-end:url(#DotM-3)"
+       d="m 444.54871,170.99309 47.69607,0 0,213.37499 53.20998,0.25 0,-213.3644 55.20153,-0.64775"
+       id="path5215-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="/home/user/Integration/inet/showcases/emulation/babel/doc/media/path5215-7.png"
+       inkscape:export-xdpi="184.97647"
+       inkscape:export-ydpi="184.97647" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#008b8b;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker7534);marker-end:url(#marker7534)"
+       d="m 220.26376,180.49954 44.19418,0 0,208.24295 291.68154,0 0,-208.5965 44.19418,0"
+       id="path7532"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker8218);marker-end:url(#marker8218)"
+       d="m 129.5,142.4872 0,268.375 448.5,0 0,-183.5 22,0"
+       id="path8216"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>
