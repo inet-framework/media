@@ -1,0 +1,41 @@
+diff --git a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+index f38f6de72b..bb88f75352 100644
+--- a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
++++ b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+@@ -1039,17 +1039,6 @@ void Hcf::startFrameSequence(AccessCategory ac)
+     auto context = buildContext(ac);
+     auto qos = context->getQoSContext();
+     std::swap(qos->openingBasicBarRetry, edca->getEdcaf(ac)->getPendingBasicBarRetry());
+-    if (originatorBlockAckAgreementHandler && blockAckVariant == BlockAckVariant::BASIC &&
+-        qos->txopProcedure->getProtectionMechanism() == TxopProcedure::SINGLE_PROTECTION && qos->txopProcedure->getLimit() > 0) {
+-        qos->basicOpeningFits = [this, context, txop = qos->txopProcedure](Packet *packet) {
+-            auto header = packet->peekAtFront<Ieee80211DataHeader>();
+-            auto mode = rateSelection->computeMode(packet, header, txop);
+-            return mode->getDuration(packet->getDataLength()) <= computeBasicOpeningDataBudget(context, header);
+-        };
+-        if (!qos->openingBasicBarRetry.request &&
+-            !originatorAckPolicy->isBlockAckReqNeeded(context->getInProgressFrames(), qos->txopProcedure, originatorBlockAckAgreementHandler))
+-            prepareBasicOpeningData(context);
+-    }
+     frameSequenceHandler->startFrameSequence(new HcfFs(), context, this);
+ }
+ 
+@@ -2214,17 +2203,7 @@ simtime_t Hcf::reserveBasicDataContinuation(const FrameSequenceContext *context,
+     }
+     else {
+         auto candidateId = candidate->getId();
+-        auto mode = rateSelection->computeMode(candidate, data, qos->txopProcedure);
+-        if (precedingData && service->hasAMsduAggregation()) {
+-            auto airtime = mode->getDuration(candidate->getDataLength());
+-            auto minimum = encodeDuration(modeSet->getSifsTime() + airtime, false);
+-            budget = leaveBasicFeedbackAirtime(context, candidate, budget, minimum, start + airtime, precedingData);
+-        }
+-        auto fits = [this, data, mode, budget](b length) {
+-            return originatorAckPolicy->isBlockAckPolicyEligibleFrame(length, data) &&
+-                encodeDuration(modeSet->getSifsTime() + mode->getDuration(length), false) <= budget;
+-        };
+-        preview = service->prepareFrame(edca->getChannelOwner()->getPendingQueue(), true, fits);
++        preview = service->prepareFrame(edca->getChannelOwner()->getPendingQueue(), true);
+         if (!preview || preview->sourceIds.front() != candidateId || !service->isPreparationValid(*preview, start))
+             return SIMTIME_ZERO;
+         firstFragment = service->previewBasicFirstMpdu(preview->packet.get());
