@@ -1,0 +1,224 @@
+diff --git a/src/inet/linklayer/ieee80211/mac/channelaccess/Edcaf.cc b/src/inet/linklayer/ieee80211/mac/channelaccess/Edcaf.cc
+index ca32c551b3..8df6d50d28 100644
+--- a/src/inet/linklayer/ieee80211/mac/channelaccess/Edcaf.cc
++++ b/src/inet/linklayer/ieee80211/mac/channelaccess/Edcaf.cc
+@@ -77,16 +77,14 @@ void Edcaf::calculateTimingParameters()
+         cwMin = getCwMin(ac, modeSet->getCwMin());
+     if (cwMax == -1)
+         cwMax = getCwMax(ac, modeSet->getCwMax(), modeSet->getCwMin());
+-    updateContentionWindow();
++    cw = cwMin;
+     EV_DEBUG << "Contention window parameters are initialized: cw = " << cw << ", cwMin = " << cwMin << ", cwMax = " << cwMax << std::endl;
+ }
+ 
+ void Edcaf::incrementCw()
+ {
+     Enter_Method("incrementCw");
+-    // IEEE Std 802.11-2024, 10.23.2.2: one QSRC for this access category.
+-    edcaRetryCount = edcaRetryCount < edcaRetryLimit ? edcaRetryCount + 1 : 0;
+-    updateContentionWindow();
++    cw = std::min(2 * cw + 1, cwMax);
+ }
+ 
+ void Edcaf::resetCw()
+diff --git a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+index f4fe1c184c..1a89751979 100644
+--- a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
++++ b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+@@ -1101,19 +1101,6 @@ void Hcf::frameSequenceFinished()
+     emit(IFrameSequenceHandler::frameSequenceFinishedSignal, frameSequenceHandler->getContext());
+     auto edcaf = edca->getChannelOwner();
+     if (edcaf) {
+-        auto context = frameSequenceHandler->getContext();
+-        auto lastStep = context->getLastStep();
+-        if (lastStep && lastStep->getCompletion() == IFrameSequenceStep::Completion::ACCEPTED) {
+-            auto receiveStep = dynamic_cast<IReceiveStep *>(lastStep);
+-            auto transmitStep = check_and_cast<ITransmitStep *>(receiveStep ? context->getStepBeforeLast() : lastStep);
+-            auto transmitted = transmitStep->getFrameToTransmit()->peekAtFront<Ieee80211MacHeader>();
+-            bool rtsCompleted = transmitted->getType() == ST_RTS && receiveStep &&
+-                receiveStep->getReceivedFrame()->peekAtFront<Ieee80211MacHeader>()->getType() == ST_CTS;
+-            if (dynamicPtrCast<const Ieee80211DataOrMgmtHeader>(transmitted) || dynamicPtrCast<const Ieee80211BlockAckReq>(transmitted) || rtsCompleted)
+-                // IEEE Std 802.11-2024, 10.23.2.2(b): the final successful PPDU may be RTS when DATA is refused.
+-                // Select the next backoff at CWmin. RX keeps the countdown frozen until TXNAV expires.
+-                edcaf->getRecoveryProcedure()->txopCompleted();
+-        }
+         // The context still owns references. dropFrame defers deletion until context disposal.
+         expireDataFrames(false);
+         advanceOriginatorWindows();
+@@ -1415,6 +1402,8 @@ void Hcf::originatorProcessTransmittedFrame(Packet *packet)
+         if (transmittedHeader->getReceiverAddress().isMulticast()) {
+             if (dynamicPtrCast<const Ieee80211MgmtHeader>(transmittedHeader))
+                 edcaf->getMgmtAndNonQoSRecoveryProcedure()->multicastFrameTransmitted(edcaf->getStationRetryCounters());
++            else
++                edcaf->getRecoveryProcedure()->multicastFrameTransmitted();
+             if (auto transmittedDataOrMgmtHeader = dynamicPtrCast<const Ieee80211DataOrMgmtHeader>(transmittedHeader))
+                 edcaf->getInProgressFrames()->dropFrame(packet);
+         }
+@@ -1634,6 +1623,7 @@ void Hcf::originatorProcessReceivedControlFrame(Packet *packet, const Ptr<const
+         if (!agreement)
+             return;
+         EV_INFO << "BlockAck has arrived" << std::endl;
++        edcaf->getRecoveryProcedure()->blockAckFrameReceived();
+         auto ackedSeqAndFragNums = compressed ? edcaf->getAckHandler()->processReceivedCompressedBlockAck(compressed, agreement) :
+             edcaf->getAckHandler()->processReceivedBlockAck(blockAck);
+         if (originatorBlockAckAgreementHandler)
+@@ -1657,6 +1647,8 @@ void Hcf::originatorProcessReceivedControlFrame(Packet *packet, const Ptr<const
+         auto protectedHeader = rtsStep->getProtectedFrame()->peekAtFront<Ieee80211DataOrMgmtHeader>();
+         if (dynamicPtrCast<const Ieee80211MgmtHeader>(protectedHeader))
+             edcaf->getMgmtAndNonQoSRecoveryProcedure()->ctsFrameReceived(edcaf->getStationRetryCounters());
++        else
++            edcaf->getRecoveryProcedure()->ctsFrameReceived();
+     }
+     else if (header->getType() == ST_DATA_WITH_QOS)
+         ; // void
+diff --git a/src/inet/linklayer/ieee80211/mac/originator/NonQosRecoveryProcedure.cc b/src/inet/linklayer/ieee80211/mac/originator/NonQosRecoveryProcedure.cc
+index 4b2ace3c2e..2b77ca61c3 100644
+--- a/src/inet/linklayer/ieee80211/mac/originator/NonQosRecoveryProcedure.cc
++++ b/src/inet/linklayer/ieee80211/mac/originator/NonQosRecoveryProcedure.cc
+@@ -45,7 +45,7 @@ void NonQosRecoveryProcedure::incrementStationSrc(StationRetryCounters *stationC
+ {
+     stationCounters->incrementStationShortRetryCount();
+     EV_INFO << "Incremented station SRC: stationShortRetryCounter = " << stationCounters->getStationShortRetryCount() << ".\n";
+-    if (!dynamic_cast<IEdcaCwCalculator *>(cwCalculator) && stationCounters->getStationShortRetryCount() == shortRetryLimit) // 9.3.3 Random backoff time
++    if (stationCounters->getStationShortRetryCount() == shortRetryLimit) // 9.3.3 Random backoff time
+         resetContentionWindow();
+     else
+         incrementContentionWindow();
+@@ -55,7 +55,7 @@ void NonQosRecoveryProcedure::incrementStationLrc(StationRetryCounters *stationC
+ {
+     stationCounters->incrementStationLongRetryCount();
+     EV_INFO << "Incremented station LRC: stationLongRetryCounter = " << stationCounters->getStationLongRetryCount() << ".\n";
+-    if (!dynamic_cast<IEdcaCwCalculator *>(cwCalculator) && stationCounters->getStationLongRetryCount() == longRetryLimit) // 9.3.3 Random backoff time
++    if (stationCounters->getStationLongRetryCount() == longRetryLimit) // 9.3.3 Random backoff time
+         resetContentionWindow();
+     else
+         incrementContentionWindow();
+@@ -123,9 +123,7 @@ void NonQosRecoveryProcedure::ackFrameReceived(Packet *packet, const Ptr<const I
+     // The CW shall be reset to aCWmin after every successful attempt to transmit a frame containing
+     // all or part of an MSDU or MMPDU
+     //
+-    // HCF resets the shared EDCA window at the end of the TXOP.
+-    if (!dynamic_cast<IEdcaCwCalculator *>(cwCalculator))
+-        resetContentionWindow();
++    resetContentionWindow();
+ }
+ 
+ //
+diff --git a/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.cc b/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.cc
+index 884c433171..c49d7cf090 100644
+--- a/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.cc
++++ b/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.cc
+@@ -59,6 +59,18 @@ void QosRecoveryProcedure::txopCompleted()
+ }
+ 
+ void QosRecoveryProcedure::edcaTransmissionFailed()
++{
++    if (stationShortRetryCounter < shortRetryLimit) {
++        ++stationShortRetryCounter;
++        incrementContentionWindow();
++    }
++    else {
++        stationShortRetryCounter = 0;
++        txopCompleted();
++    }
++}
++
++void QosRecoveryProcedure::incrementContentionWindow()
+ {
+     auto oldCw = cwCalculator->getCw();
+     cwCalculator->incrementCw();
+@@ -66,6 +78,30 @@ void QosRecoveryProcedure::edcaTransmissionFailed()
+         emit(contentionWindowChangedSignal, cwCalculator->getCw());
+ }
+ 
++void QosRecoveryProcedure::incrementStationCounter(int& counter, int limit)
++{
++    if (++counter == limit)
++        txopCompleted();
++    else
++        incrementContentionWindow();
++}
++
++void QosRecoveryProcedure::multicastFrameTransmitted()
++{
++    stationShortRetryCounter = stationLongRetryCounter = 0;
++}
++
++void QosRecoveryProcedure::ctsFrameReceived()
++{
++    stationShortRetryCounter = 0;
++}
++
++void QosRecoveryProcedure::blockAckFrameReceived()
++{
++    stationShortRetryCounter = 0;
++    txopCompleted();
++}
++
+ //
+ // This SRC shall be reset when a MAC frame of length less than or equal
+ // to dot11RTSThreshold succeeds for that MPDU of type Data or MMPDU.
+@@ -76,8 +112,11 @@ void QosRecoveryProcedure::edcaTransmissionFailed()
+ void QosRecoveryProcedure::ackFrameReceived(Packet *packet, const Ptr<const Ieee80211DataHeader>& ackedHeader)
+ {
+     auto id = getRetryKey(ackedHeader);
+-    auto& retries = packet->getByteLength() >= rtsThreshold ? longRetryCounter : shortRetryCounter;
++    bool isLong = packet->getByteLength() >= rtsThreshold;
++    (isLong ? stationLongRetryCounter : stationShortRetryCounter) = 0;
++    auto& retries = isLong ? longRetryCounter : shortRetryCounter;
+     retries.erase(id);
++    txopCompleted();
+ }
+ 
+ //
+@@ -110,8 +149,9 @@ void QosRecoveryProcedure::dropFrame(const Ptr<const Ieee80211DataHeader>& heade
+ //
+ void QosRecoveryProcedure::dataFrameTransmissionFailed(Packet *packet, const Ptr<const Ieee80211DataHeader>& failedHeader)
+ {
+-    edcaTransmissionFailed();
+-    auto& retries = packet->getByteLength() >= rtsThreshold ? longRetryCounter : shortRetryCounter;
++    bool isLong = packet->getByteLength() >= rtsThreshold;
++    incrementStationCounter(isLong ? stationLongRetryCounter : stationShortRetryCounter, isLong ? longRetryLimit : shortRetryLimit);
++    auto& retries = isLong ? longRetryCounter : shortRetryCounter;
+     incrementCounter(failedHeader, retries);
+ }
+ 
+@@ -120,7 +160,7 @@ void QosRecoveryProcedure::dataFrameTransmissionFailed(Packet *packet, const Ptr
+ //
+ void QosRecoveryProcedure::rtsFrameTransmissionFailed(const Ptr<const Ieee80211DataHeader>& protectedHeader)
+ {
+-    edcaTransmissionFailed();
++    incrementStationCounter(stationShortRetryCounter, shortRetryLimit);
+     incrementCounter(protectedHeader, shortRetryCounter);
+ }
+ 
+diff --git a/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.h b/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.h
+index 7d49137e4c..9ce4b8d626 100644
+--- a/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.h
++++ b/src/inet/linklayer/ieee80211/mac/originator/QosRecoveryProcedure.h
+@@ -40,6 +40,8 @@ class INET_API QosRecoveryProcedure : public SimpleModule, public IRecoveryProce
+     int shortRetryLimit = -1;
+     int longRetryLimit = -1;
+     int rtsThreshold = -1;
++    int stationShortRetryCounter = 0;
++    int stationLongRetryCounter = 0;
+ 
+   protected:
+     virtual int numInitStages() const override { return NUM_INIT_STAGES; }
+@@ -49,11 +51,16 @@ class INET_API QosRecoveryProcedure : public SimpleModule, public IRecoveryProce
+     void incrementCounter(const Ptr<const Ieee80211DataHeader>& header, std::map<RetryKey, int>& retryCounter);
+     int getRc(Packet *packet, const Ptr<const Ieee80211DataHeader>& header, std::map<RetryKey, int>& retryCounter);
+     bool isMulticastFrame(Packet *packet, const Ptr<const Ieee80211MacHeader>& header);
++    void incrementContentionWindow();
++    void incrementStationCounter(int& counter, int limit);
+ 
+   public:
+     virtual void ackFrameReceived(Packet *packet, const Ptr<const Ieee80211DataHeader>& ackedHeader);
+     virtual void txopCompleted();
+     virtual void edcaTransmissionFailed();
++    void multicastFrameTransmitted();
++    void ctsFrameReceived();
++    void blockAckFrameReceived();
+ 
+     virtual void rtsFrameTransmissionFailed(const Ptr<const Ieee80211DataHeader>& protectedHeader);
+     virtual void dataFrameTransmissionFailed(Packet *packet, const Ptr<const Ieee80211DataHeader>& failedHeader);
