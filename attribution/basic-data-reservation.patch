@@ -1,0 +1,107 @@
+diff --git b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+index a06d62008d..bf2b00f14e 100644
+--- b/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
++++ a/src/inet/linklayer/ieee80211/mac/coordinationfunction/Hcf.cc
+@@ -1695,8 +1693,6 @@ void Hcf::originatorProcessReceivedControlFrame(Packet *packet, const Ptr<const
+         advanceOriginatorWindows();
+         edcaf->getAckHandler()->dropFrames(ackedSeqAndFragNums);
+         completeTransfers();
+-        if (basic)
+-            commitPostBarData(frameSequenceHandler->getContext(), basic);
+     }
+     else if (dynamicPtrCast<const Ieee80211RtsFrame>(header))
+         ; // void
+@@ -2254,7 +2148,6 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+         if (lifetimeHandler->isExpired(data, simTime() + ifs))
+             return false;
+         auto txop = channelOwner->getTxopProcedure();
+-        auto qos = context->getQoSContext();
+         bool singleProtection = txop->getProtectionMechanism() == TxopProcedure::SINGLE_PROTECTION;
+         bool scopedSingle = singleProtection && !par("isBlockAckSupported").boolValue();
+         bool basicDataExchange = originatorBlockAckAgreementHandler && blockAckVariant == BlockAckVariant::BASIC &&
+@@ -2289,11 +2182,6 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+             dataAfterCts && (scopedSingle || basicContinuation) ? packet->getTag<Ieee80211ModeReq>()->getMode() :
+             rateSelection->computeMode(packet, header, txop);
+         setFrameMode(packet, header, mode);
+-        if (packet->getId() == qos->plannedBasicDataId) {
+-            auto data = dynamicPtrCast<const Ieee80211DataHeader>(header);
+-            if (!data || data->getAckPolicy() != BLOCK_ACK)
+-                return false;
+-        }
+         if (auto bar = dynamicPtrCast<const Ieee80211BlockAckReq>(header)) {
+             auto basic = dynamicPtrCast<const Ieee80211BasicBlockAckReq>(bar);
+             auto compressed = dynamicPtrCast<const Ieee80211CompressedBlockAckReq>(bar);
+@@ -2403,10 +2291,6 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+         else if (txop->getProtectionMechanism() == TxopProcedure::ProtectionMechanism::SINGLE_PROTECTION) {
+             auto dataOrMgmt = dynamicPtrCast<const Ieee80211DataOrMgmtHeader>(header);
+             auto dataHeader = dynamicPtrCast<const Ieee80211DataHeader>(header);
+-            auto bar = dynamicPtrCast<const Ieee80211BasicBlockAckReq>(header);
+-            qos->plannedBasicDataId = -1;
+-            qos->plannedPostBarData.reset();
+-            qos->plannedPostBarDuration = SIMTIME_ZERO;
+             bool basicBlockAckData = basicDataExchange && dataHeader && dataHeader->getAckPolicy() == BLOCK_ACK && txop->getLimit() > 0;
+             auto dataEnd = simTime() + ifs + mode->getDuration(packet->getDataLength());
+             auto [peer, sequence, tid] = basicBlockAckData ?
+@@ -2414,17 +2298,7 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+                     originatorBlockAckAgreementHandler, packet, dataEnd) :
+                 std::make_tuple(MacAddress::UNSPECIFIED_ADDRESS, SequenceNumberCyclic(0), Tid(-1));
+             simtime_t duration = SIMTIME_ZERO;
+-            if (bar) {
+-                auto airtime = mode->getDuration(packet->getDataLength());
+-                auto reply = computeBlockAckExchangeDuration(packet, bar, airtime) - airtime;
+-                auto budget = std::min(SimTime(MAX_DURATION_FIELD_MICROSECONDS, SIMTIME_US) - reply,
+-                    txop->getRemaining() - ifs - airtime - reply);
+-                if (txop->getLimit() > 0)
+-                    qos->plannedPostBarDuration = reserveBasicDataContinuation(context, context->getInProgressFrames()->peekFrameToTransmit(),
+-                        bar->getReceiverAddress(), bar->getTidInfo(), budget, dataEnd + reply + modeSet->getSifsTime(), true);
+-                duration = encodeDuration(reply + qos->plannedPostBarDuration, false);
+-            }
+-            else if (tid != -1) {
++            if (tid != -1) {
+                 // IEEE Std 802.11-2024, 9.2.5.2(a)(9): protect the following request and its immediate response.
+                 auto requestHeader = originatorBlockAckProcedure->buildBasicBlockAckReqFrame(peer, tid, sequence);
+                 Packet request("forecast-BAR", requestHeader);
+@@ -2444,14 +2318,6 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+                 auto frames = channelOwner->getInProgressFrames();
+                 auto pendingPacket = finalDataOrMgmt || dynamicPtrCast<const Ieee80211BlockAckReq>(header) ? nullptr :
+                     frames->getPendingFrameFor(packet, false);
+-                if (pendingPacket && !frames->containsFrame(pendingPacket) && basicBlockAckData && !frames->isExpired(packet, dataEnd)) {
+-                    auto budget = std::min(SimTime(MAX_DURATION_FIELD_MICROSECONDS, SIMTIME_US),
+-                        txop->getRemaining() - (dataEnd - simTime()));
+-                    duration = reserveBasicDataContinuation(context, pendingPacket, dataHeader->getReceiverAddress(), dataHeader->getTid(),
+-                        budget, dataEnd + modeSet->getSifsTime(), false);
+-                    // Commitment can remove the queued source.
+-                    pendingPacket = nullptr;
+-                }
+                 if (pendingPacket && !frames->containsFrame(pendingPacket)) {
+                     // HcfFs ends this TXOP before extraction can change the successor's size or setup state.
+                     pendingPacket = nullptr;
+@@ -2480,7 +2346,7 @@ bool Hcf::transmitFrame(Packet *packet, simtime_t ifs)
+                             duration = reservation;
+                     }
+                 }
+-                else if (duration == SIMTIME_ZERO)
++                else
+                     duration = singleProtectionMechanism->computeDurationField(packet, header, pendingPacket, pendingHeader, txop, recipientAckPolicy);
+             }
+             auto header = packet->removeAtFront<Ieee80211MacHeader>();
+diff --git b/src/inet/linklayer/ieee80211/mac/framesequence/HcfFs.cc a/src/inet/linklayer/ieee80211/mac/framesequence/HcfFs.cc
+index b2ec4eec9e..a1f3c8da56 100644
+--- b/src/inet/linklayer/ieee80211/mac/framesequence/HcfFs.cc
++++ a/src/inet/linklayer/ieee80211/mac/framesequence/HcfFs.cc
+@@ -69,15 +69,6 @@ bool HcfFs::hasMoreTxOps(RepeatingFs *frameSequence, FrameSequenceContext *conte
+     auto frames = context->getInProgressFrames();
+     auto qos = context->getQoSContext();
+     bool bar = qos->ackPolicy->isBlockAckReqNeeded(frames, qos->txopProcedure, qos->blockAckAgreementHandler);
+-    if (!bar && qos->txopProcedure->getProtectionMechanism() == TxopProcedure::SINGLE_PROTECTION) {
+-        auto step = dynamic_cast<IReceiveStep *>(context->getLastStep());
+-        bool followsBasicReply = step && step->getCompletion() == IFrameSequenceStep::Completion::ACCEPTED &&
+-            dynamicPtrCast<const Ieee80211BasicBlockAck>(step->getReceivedFrame()->peekAtFront<Ieee80211MacHeader>());
+-        if (followsBasicReply || qos->plannedBasicDataId != -1) {
+-            auto next = frames->peekFrameToTransmit();
+-            return next && next->getId() == qos->plannedBasicDataId && qos->txopProcedure->getRemaining() > 0;
+-        }
+-    }
+     qos->preparedData.reset();
+     if (!bar && frameSequence->getCount() != 0 && qos->txopProcedure->getLimit() == 0 &&
+         context->isFragmentContinuation(frames->peekFrameToTransmit(), context->getNumSteps()))
